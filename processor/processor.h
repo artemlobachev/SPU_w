@@ -9,15 +9,16 @@
 #include "../stack/stack.h"
 
 const ssize_t REGISTERS_SIZE = 64;
+const ssize_t RAM_SIZE       = 1000;
 
 struct SpuStruct
 {
     Stack *stk;
-    
     int *commands;
     ssize_t ip;
 
     int registers[REGISTERS_SIZE];
+    int ram[RAM_SIZE]
 };
 
 enum class SpuErrors
@@ -31,11 +32,23 @@ enum commands
 {
     push,
     pop,
-    jmp,
     hlt,
-    sum,
-    mult,
-    mov
+
+    jmp,
+    ja,
+    jae,
+    jb,
+    jbe,
+    jne,
+    call,
+    ret,
+
+    sub,
+    mul,
+    div,
+    sqrt,
+    sin,
+    cos
 };
 
 SpuErrors runProcessor(FILE *InputFile);

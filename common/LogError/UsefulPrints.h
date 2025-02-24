@@ -36,8 +36,9 @@ do                                   \
 
 /*---------------FOR HTML--------------------------------------*/
 
-#define HEAD_WHITE       "<h1 style=\"color: white;\">"
-#define HEAD_RED         "<h1 style=\"color: red;\">"
+#define HEAD_INFO        "<h1 style=\"color: white;\">  [INFO]"
+#define HEAD_WARNING     "<h1 style=\"color: orange;\"> [WARNING]"
+#define HEAD_ERROR       "<h1 style=\"color: red;\">    [ERROR]"
 #define HEAD_LIGHT_GREEN "<h1 style=\"color: greenyellow;\">"
 
 #define BACKGROUND_DARK_BLUE ""

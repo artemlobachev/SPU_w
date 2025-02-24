@@ -12,8 +12,8 @@ enum class InOutError
 
 };
 
-ssize_t getFileSize      (FILE *file);
-ssize_t getFileSizeByName(const char * const fileName);
+ssize_t GetFileSize      (FILE *file);
+ssize_t GetFileSizeByName(const char * const fileName);
 FILE *openFile           (const char * const fileName, const char * const mode);
 char *readFileByName     (const char * const fileName);
 char *readFile           (FILE *file);

@@ -24,7 +24,7 @@ char *readFile(FILE *file)
     assert(file);
 
     char *code = nullptr;
-    ssize_t fileSize = getFileSize(file);
+    ssize_t fileSize = GetFileSize(file);
     if (fileSize <= 0)
     {   
         LogError("FSFDS");
@@ -50,7 +50,7 @@ char *readFileByName(const char * const fileName)
 {
     assert(fileName);
 
-    ssize_t fileSize = getFileSizeByName(fileName);
+    ssize_t fileSize = GetFileSizeByName(fileName);
     if (fileSize <= 0)
     {
         LogError("helhel");
@@ -71,7 +71,7 @@ char *readFileByName(const char * const fileName)
     return buffer;
 }
 
-ssize_t getFileSizeByName(const char * const fileName)
+ssize_t GetFileSizeByName(const char * const fileName)
 {
     assert(fileName);
 
@@ -86,7 +86,7 @@ ssize_t getFileSizeByName(const char * const fileName)
     return fileInfo.st_size;
 }
 
-ssize_t getFileSize(FILE *file)
+ssize_t GetFileSize(FILE *file)
 {
     assert(file);
 

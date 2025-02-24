@@ -16,6 +16,13 @@ enum class LogErrors
     FILE_WRITE_ERROR
 };
 
+enum LogLevel
+{
+    LOG_INFO,
+    LOG_WARNING,
+    LOG_ERROR
+};
+
 LogErrors LogOpen     (const char *LogFileName);
 LogErrors Log         (const char *message, ...);
 LogErrors LogError(const char *ErrorMessage, ...);

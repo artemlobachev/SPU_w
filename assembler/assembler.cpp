@@ -25,7 +25,7 @@ AsmErrors assembly(FILE *asmFile, FILE *binFile)
     }
 
     BinCode outCode = {};
-    BinCodeCtor(labels, inCode, &outCode);
+    GenerateBinCode(labels, inCode, &outCode);
 
     if (fwrite(outCode.binCode, sizeof(int), outCode.binCodeSize, binFile))
     {
@@ -114,15 +114,9 @@ static bool IsLabel(const char *commandBuffer, const ssize_t commandSize)
     return false;
 }
 
-static AsmErrors writeBin(FILE *binFile)
-{
-    assert(binFile);
-
-}
-
-static AsmErrors BinCodeCtor(LabelStruct *labels, const char *inCode, BinCode *outCode)
+static AsmErrors GenerateBinCode(LabelStruct *labels, const char *inCode, BinCode *outCode)
 {
     assert(labels && inCode && outCode);
 
-    
+    if ()
 }

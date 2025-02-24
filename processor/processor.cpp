@@ -24,18 +24,38 @@ static SpuErrors ExecuteCommands(SpuStruct *spu)
         switch(command)
         {
             case push:
-            
+
             case pop:
 
             case jmp:
 
-            case sum:
+            case ja:
 
-            case mult:
+            case jae:
+
+            case jb:
+            
+            case jbe:
+
+            case jne:
+
+            case call:
+
+            case ret:
+
+            case sub:
+
+            case mul:
+
+            case div:
+
+            case sqrt:
+
+            case sin:
+
+            case cos:
 
             case hlt:
-
-            case mov:
 
             default:
                 puts("Undefined")
@@ -82,6 +102,9 @@ static SpuErrors SpuCtor(SpuStruct *spu, FILE *InputFile)
     spu->commands = BinRead(InputFile);
     spu->ip       = 0;
 
+    for (int i = 0; i < RAM_SIZE; i++)
+        spu->ram[i] = 0;
+
     spu->stk = {};
     ErrorCode StackError = StackCtor(&spu->stk, 321);
     
@@ -104,10 +127,13 @@ static int *BinRead(FILE *InputFile)
     int *CommandsBuffer = (int *) calloc(CommandsCount, sizeof(int));
     if (CommandsBuffer == nullptr)
     {
-        return;
+        LogError("alloc error");
+        
+        return nullptr;
     }
 
-    fread(CommandsBuffer, sizeof(int), CommandsCount, InputFile);
+    if (fread(CommandsBuffer, sizeof(int), CommandsCount, InputFile))
+        LogError("read file error");
 
     return CommandsBuffer;
 }
